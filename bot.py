@@ -2,7 +2,7 @@
 import config
 import telebot
 from telebot import types
-import requests
+
 bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(content_types=["text"])
