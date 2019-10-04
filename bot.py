@@ -2,7 +2,9 @@
 import config
 import telebot
 from telebot import types
-
+from telegram.ext import Updater, InlineQueryHandler, CommandHandler
+import requests
+import re
 bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(content_types=["text"])
