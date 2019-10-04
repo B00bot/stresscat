@@ -20,12 +20,12 @@ def get_text_messages(message):
 		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
-def main():
+def pole():
     updater = Updater(config.token)
     dp = updater.dispatcher
-    dp.add_handler(MessageHandler(Filters.text))
+    dp.add_handler(MessageHandler)
     updater.start_polling()
     updater.idle()
 
 if __name__ == '__main__':
-    main()
+    pole()
