@@ -1,14 +1,12 @@
 import config
 import telebot
 from telebot import types
-import re
+import logging
 import telegram
-import time
-from telegram.ext import Updater
-from telegram.ext import CommandHandler
-from telegram.ext import MessageHandler, Filters, ConversationHandler, RegexHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ConversationHandler, RegexHandler
 
-bot = telebot.TeleBot(config.token)
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
@@ -21,11 +19,20 @@ def get_text_messages(message):
 	elif message.text == "/proof":
 		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
-		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 def main():
     updater = Updater(token = '845739116:AAHTjdzhhe526OLCj1uycnJG6jg2H3NXxfk')
 
     dispatcher = updater.dispatcher
+
+    conv_handler = ConversationHandler(
+        entry_points = [CommandHandler('start', start)],
+
+        fallbacks=[CommandHandler('cancel', cancel)]
+    )
+
+    dispatcher.add_handler(conv_handler)
+
+    dispatcher.add_error_handler(error)
     
     updater.start_polling()
     updater.idle()
