@@ -21,8 +21,6 @@ def get_text_messages(message):
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 def main():
     updater = Updater('862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc')
-    dp = updater.dispatcher
-    dp.add_handler(CommandHandler('message',message))
     updater.start_polling()
     updater.idle()
 if __name__ == '__main__':
