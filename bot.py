@@ -14,7 +14,7 @@ def get_text_messages(message):
 	elif message.text == "/secret_word":
 		bot.send_message(message.from_user.id, "Мой создатель любит Лапу")
 	elif message.text == "/hochu_tsmock":
-		bot.send_photo(message.from_user.id, open('./tsmock.jpg', 'rb'));
+		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 if __name__ == '__main__':
