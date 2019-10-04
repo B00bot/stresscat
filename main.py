@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import requests
 import config
 import telebot
 from telebot import types
