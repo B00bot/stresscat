@@ -18,4 +18,4 @@ def get_text_messages(message):
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 if __name__ == '__main__':
-     bot.polling(none_stop=True)
+     bot.polling(none_stop=True, timeout=0)
