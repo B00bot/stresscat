@@ -22,7 +22,7 @@ def get_text_messages(message):
 def main():
     updater = Updater('862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc')
     dp = updater.dispatcher
-    dp.add_handler(CommandHandler('bop',bop))
+    dp.add_handler(CommandHandler('message',message))
     updater.start_polling()
     updater.idle()
 if __name__ == '__main__':
