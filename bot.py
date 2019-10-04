@@ -20,7 +20,7 @@ def get_text_messages(message):
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 def main():
-    updater = Updater('YOUR_TOKEN')
+    updater = Updater('862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc')
     dp = updater.dispatcher
     dp.add_handler(CommandHandler('bop',bop))
     updater.start_polling()
