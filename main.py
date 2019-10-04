@@ -20,10 +20,10 @@ def get_text_messages(message):
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 		
 if __name__ == '__main__':
-while True:
-    try:
-        bot.polling(none_stop=True)
+    while True:
+        try:
+            bot.polling(none_stop=True)
 
-    except Exception as e:
-      print(e) 
-      time.sleep(15)
+        except Exception as e:
+            print(e) 
+            time.sleep(15)
