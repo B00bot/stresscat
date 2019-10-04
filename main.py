@@ -23,7 +23,7 @@ def get_text_messages(message):
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 def main():
-    updater = Updater(token=862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc)
+    updater = Updater(token = '845739116:AAHTjdzhhe526OLCj1uycnJG6jg2H3NXxfk')
 
     dispatcher = updater.dispatcher
     
