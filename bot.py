@@ -8,7 +8,7 @@ bot = telebot.TeleBot(config.token)
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
 	if message.text == "Привет":
-		bot.send_message(message.from_user.id, "Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /tsmock")
+		bot.send_message(message.from_user.id, "Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")
 	elif message.text == "/help":
 		bot.send_message(message.from_user.id, "Напиши привет")
 	elif message.text == "/secret":
