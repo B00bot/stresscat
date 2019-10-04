@@ -26,8 +26,6 @@ def main():
     updater = Updater(token=config.token)
 
     dispatcher = updater.dispatcher
-
-    dispatcher.add_error_handler(error)
     
     updater.start_polling()
     updater.idle()
