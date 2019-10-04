@@ -24,4 +24,4 @@ def main():
 	updater.start_bot.polling()
 	updater.idle()
 if __name__ == '__main__':
-    main()
+    bot.infinity_polling(True)
