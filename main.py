@@ -4,7 +4,7 @@ import config
 import telebot
 from telebot import types
 
-bot = telebot.TeleBot(config.token)
+bot = telebot.TeleBot(config.token, threaded=False)
 
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
@@ -20,4 +20,10 @@ def get_text_messages(message):
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 		
 if __name__ == '__main__':
-    bot.infinity_polling(True)
+    while True:
+	try:
+        bot.polling(none_stop=True)
+
+    except Exception as e:
+      print(e) 
+        time.sleep(15)
