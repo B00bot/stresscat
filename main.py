@@ -25,7 +25,7 @@ def get_text_messages(message):
 		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
-# add handlers
+
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
 updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + TOKEN)
 updater.idle()
