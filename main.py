@@ -3,7 +3,7 @@ import requests
 import config
 import telebot
 from telebot import types
-from telegram.ext import Updater
+from telegram.ext import Updater, Dispatcher
 import os
 
 TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
@@ -11,8 +11,6 @@ PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN)
 
 bot = telebot.TeleBot(config.token)
-
-bot.process_new_updates([update])
 
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
