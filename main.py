@@ -5,7 +5,7 @@ import telebot
 from telebot import types
 import os
 
-TOKEN = "TOKEN"
+TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN)
 # add handlers
@@ -30,11 +30,3 @@ def get_text_messages(message):
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 		
-if __name__ == '__main__':
-    while True:
-        try:
-            bot.polling(none_stop=True)
-
-        except Exception as e:
-            print(e) 
-            time.sleep(15)
