@@ -26,5 +26,5 @@ def get_text_messages(message):
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
 
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
-updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + TOKEN)
+updater.bot.set_webhook("https://www.stresscatbot.herokuapp.com/" + TOKEN)
 updater.idle()
