@@ -6,7 +6,10 @@ from telebot import types
 from telegram.ext import Updater
 import os
 
-bot = telebot.TeleBot(config.token)
+TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
+PORT = int(os.environ.get('PORT', '8443'))
+updater = Updater(TOKEN)
+bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
@@ -20,10 +23,7 @@ def get_text_messages(message):
 		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
-		
-TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
-PORT = int(os.environ.get('PORT', '8443'))
-updater = Updater(TOKEN)
+get_text_messages		
 # add handlers
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
