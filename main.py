@@ -26,7 +26,7 @@ def get_text_messages(message):
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
 # add handlers
-if __name__ == '__main__'
+if __name__ == '__main__':
 	updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
 	updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + TOKEN)
 	updater.idle()
