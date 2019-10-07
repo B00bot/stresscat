@@ -3,6 +3,7 @@ import requests
 import config
 import telebot
 from telebot import types
+from telegram.ext import Updater
 import os
 
 TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
