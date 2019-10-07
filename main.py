@@ -12,6 +12,8 @@ updater = Updater(TOKEN)
 
 bot = telebot.TeleBot(config.token)
 
+bot.process_new_updates([update])
+
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
 	if message.text == "Привет":
@@ -26,5 +28,6 @@ def get_text_messages(message):
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
 
 updater.start_webhook(listen="0.0.0.0", port=PORT, url_path=TOKEN)
+bot.remove_webhook()
 updater.bot.set_webhook("https://www.stresscatbot.herokuapp.com/" + TOKEN)
 updater.idle()
