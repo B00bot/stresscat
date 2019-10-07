@@ -10,7 +10,7 @@ TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(TOKEN)
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(content_types=["text"])
 
