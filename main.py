@@ -6,16 +6,6 @@ from telebot import types
 from telegram.ext import Updater
 import os
 
-TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
-PORT = int(os.environ.get('PORT', '8443'))
-updater = Updater(TOKEN)
-# add handlers
-updater.start_webhook(listen="0.0.0.0",
-                      port=PORT,
-                      url_path=TOKEN)
-updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + TOKEN)
-updater.idle()
-
 bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(content_types=["text"])
@@ -31,3 +21,14 @@ def get_text_messages(message):
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")
 		
+TOKEN = "862281743:AAEvvJc2tldFHZWXqC540GKAxvSPxpyvqPc"
+PORT = int(os.environ.get('PORT', '8443'))
+updater = Updater(TOKEN)
+# add handlers
+updater.start_webhook(listen="0.0.0.0",
+                      port=PORT,
+                      url_path=TOKEN)
+updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + TOKEN)
+updater.idle()
+
+
