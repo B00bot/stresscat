@@ -26,6 +26,6 @@ def get_text_messages(message):
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
-                      url_path=TOKEN)
+                      url_path=config.token)
 updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
 updater.idle()
