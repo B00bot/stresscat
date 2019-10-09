@@ -12,7 +12,7 @@ PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
-def start()
+def start():
     if if message.text == "/start":
         bot.send_message(message.from_user.id, "Напиши привет")
 start_handler = CommandHandler('start', start)
