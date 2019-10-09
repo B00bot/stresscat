@@ -11,7 +11,7 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
-message_handler = MessageHandler(Filters.text, textMessage)
+bot.message_handler = MessageHandler(Filters.text, get_text_messages)
 
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
