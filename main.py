@@ -5,27 +5,34 @@ import telebot
 from telebot import types
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters
 import os
-
+import logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                     level=logging.INFO)
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
-@bot.message_handler(content_types=["text"])
-def get_text_messages(message):
-	if message.text == "Привет":
-		bot.send_message(message.from_user.id, "Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")
-	elif message.text == "/help":
-		bot.send_message(message.from_user.id, "Напиши привет")
-	elif message.text == "/secret":
-		bot.send_message(message.from_user.id, "Мой создатель любит Лапу")
-	elif message.text == "/proof":
-		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
-	else:
-		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
+start_handler = CommandHandler('start', start)
+dispatcher.add_handler(start_handler)
 
-bot.message_handler = MessageHandler(Filters.text, get_text_messages)
-dispatcher.add_handler(bot.message_handler)
+hi_handler = CommandHandler('привет', hi)
+dispatcher.add_handler(hi_handler)
+def hi():
+    if message.text == "Привет":
+        bot.send_message(message.from_user.id, "Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")
+	
+secret_handler = CommandHandler('/secret', secret)
+dispatcher.add_handler(secret_handler)
+def secret():
+    if message.text == "secret":
+        bot.send_message(message.from_user.id, "Мой создатель любит Лапу")
+
+proof_handler = CommandHandler('/proof', proof)
+def proof()
+    if message.text == "Привет":
+        bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
+dispatcher.add_handler(proof_handler)
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
