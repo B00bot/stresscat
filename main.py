@@ -28,6 +28,13 @@ def proof(bot, update):
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
 
+def grustno(bot, update):
+    pic=open('s1200.jpg', 'rb')
+    bot.send_photo(chat_id=update.message.chat_id, photo=pic);
+    bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
+grustno_handler = CommandHandler('grustno', grustno)
+dispatcher.add_handler(grustno_handler)
+
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
