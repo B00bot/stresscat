@@ -13,22 +13,22 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 def start(bot, update):
-    bot.send_message(message.from_user.id, "Напиши привет")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Напиши привет")
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
 def hi(bot, update):
-    bot.send_message(message.from_user.id, "Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")	
+        bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")	
 hi_handler = CommandHandler('привет', hi)
 dispatcher.add_handler(hi_handler)
 
 def secret(bot, update):
-    bot.send_message(message.from_user.id, "Мой создатель любит Лапу")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
 secret_handler = CommandHandler('secret', secret)
 dispatcher.add_handler(secret_handler)
 
 def proof(bot, update):
-    bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
+    bot.send_photo(chat_id=update.message.chat_id, open('tsmock.jpg', 'rb'));
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
 
