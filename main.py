@@ -13,8 +13,7 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 def start(bot, update):
-        bot.sendMessage(chat_id=update.message.chat_id, text=""Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")	
-")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")	
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
