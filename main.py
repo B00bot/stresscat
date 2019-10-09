@@ -11,8 +11,6 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
-bot.message_handler = MessageHandler(Filters.text, get_text_messages)
-
 @bot.message_handler(content_types=["text"])
 def get_text_messages(message):
 	if message.text == "Привет":
@@ -25,6 +23,8 @@ def get_text_messages(message):
 		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
+
+bot.message_handler = MessageHandler(Filters.text, get_text_messages)
 dispatcher.add_handler(bot.message_handler)
 
 updater.start_webhook(listen="0.0.0.0",
