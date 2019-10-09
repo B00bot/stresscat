@@ -45,7 +45,7 @@ def proof(bot, update):
         pic=stick3
     elif randomstick=4:
         pic=stick4
-    elif randomstick=5:
+    else randomstick=5:
         pic=stick5
     bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
 proof_handler = CommandHandler('proof', proof)
