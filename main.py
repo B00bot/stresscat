@@ -28,8 +28,8 @@ secret_handler = CommandHandler('secret', secret)
 dispatcher.add_handler(secret_handler)
 
 def proof(bot, update):
-    photo=open('tsmock.jpg', 'rb')
-    bot.send_photo(chat_id=update.message.chat_id, photo);
+    pic=open('tsmock.jpg', 'rb')
+    bot.send_photo(chat_id=update.message.chat_id, photo=pic);
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
 
