@@ -13,7 +13,7 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 def start():
-    if if message.text == "/start":
+    if message.text == "/start":
         bot.send_message(message.from_user.id, "Напиши привет")
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
