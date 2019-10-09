@@ -3,12 +3,12 @@ import requests
 import config
 import telebot
 from telebot import types
-from telegram.ext import Updater
+from telegram.ext import Updater, Dispatcher
 import os
 
 PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(config.token)
-
+dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
 @bot.message_handler(content_types=["text"])
@@ -23,6 +23,7 @@ def get_text_messages(message):
 		bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 	else:
 		bot.send_message(message.from_user.id, "Я тебя не понимаю. Напиши /help.")	
+dispatcher.add_handler(bot.message_handler)
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
