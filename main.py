@@ -6,6 +6,7 @@ from telebot import types
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters
 import os
 import logging
+import random
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 PORT = int(os.environ.get('PORT', '8443'))
@@ -27,9 +28,25 @@ def help(bot, update):
 help_handler = CommandHandler('help', help)
 dispatcher.add_handler(help_handler)
 
+#stickers for random
+stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
+stick2="CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE"
+stick3="CAADBAADfQADzjkIDSgZQLclD7jiFgQ"
+stick4="CAADBAADRAADzjkIDbv4-ULKD6hiFgQ"
+stick5="CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"
 
 def proof(bot, update):
-    pic="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
+    randomstick=random.randint(1,5)
+    if randomstick=1:
+        pic=stick1
+    elif randomstick=2:
+        pic=stick2
+    elif randomstick=3:
+        pic=stick3
+    elif randomstick=4:
+        pic=stick4
+    elif randomstick=5:
+        pic=stick5
     bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
