@@ -12,26 +12,26 @@ PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
-def start(message.text, bot.send_message):
-    if message.text == "/start":
+def start(update, context):
+    if context == "/start":
         bot.send_message(message.from_user.id, "Напиши привет")
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
-def hi(message.text, bot.send_message):
-    if message.text == "Привет":
+def hi(update, context):
+    if context == "Привет":
         bot.send_message(message.from_user.id, "Привет, если хочешь узнать тайну, отправь /secret. Если нужны доказательства - отправь /proof")	
 hi_handler = CommandHandler('привет', hi)
 dispatcher.add_handler(hi_handler)
 
-def secret(message.text, bot.send_message):
-    if message.text == "/secret":
+def secret(update, context):
+    if context == "/secret":
         bot.send_message(message.from_user.id, "Мой создатель любит Лапу")
 secret_handler = CommandHandler('/secret', secret)
 dispatcher.add_handler(secret_handler)
 
-def proof(message.text, bot.send_message):
-    if message.text == "/proof":
+def proof(update, context):
+    if context == "/proof":
         bot.send_photo(message.from_user.id, open('tsmock.jpg', 'rb'));
 proof_handler = CommandHandler('/proof', proof)
 dispatcher.add_handler(proof_handler)
