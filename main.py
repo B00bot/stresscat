@@ -29,8 +29,8 @@ dispatcher.add_handler(help_handler)
 
 
 def proof(bot, update):
-    pic=open('tsmock.jpg', 'rb')
-    bot.send_photo(chat_id=update.message.chat_id, photo=pic);
+    pic=CAADAgADCwADlp-MDpuVH3sws_a7FgQ
+    bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
 
