@@ -3,7 +3,7 @@ import requests
 import config
 import telebot
 from telebot import types
-from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters, ReplyKeyboardMarkup
+from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters
 import os
 import logging
 import random
