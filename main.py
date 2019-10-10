@@ -61,10 +61,10 @@ dispatcher.add_handler(grustno_handler)
 button_secret=secret
 button_proof=proof
 button_sad=sad
-keyboard=telebot.types.ReplyKeyboardMarkup(True, False)
-  user_markup.add(button_secret("Секрет"), button_proof("Доказательство"), button_sad("Грустно"))
-keyboard=telebot.types.ReplyKeyboardMarkup(True, False)
-  user_markup.add(button_help("Нипанятнаа"))
+keyboard1=telebot.types.ReplyKeyboardMarkup(True, False)
+keyboard1.add(button_secret("Секрет"), button_proof("Доказательство"), button_sad("Грустно"))
+keyboard2=telebot.types.ReplyKeyboardMarkup(True, False)
+keyboard2.add(button_help("Нипанятнаа"))
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
