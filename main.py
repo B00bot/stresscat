@@ -60,7 +60,7 @@ grustno_handler = CommandHandler('grustno', grustno)
 dispatcher.add_handler(grustno_handler)
 button_secret=secret
 button_proof=proof
-button_sad=sad
+button_sad=grustno
 keyboard1=telebot.types.ReplyKeyboardMarkup(True, False)
 keyboard1.add(button_secret(text="Секрет"), button_proof(text="Доказательство"), button_sad(text="Грустно"))
 keyboard2=telebot.types.ReplyKeyboardMarkup(True, False)
