@@ -67,7 +67,7 @@ def main():
     keyboard2=telebot.types.ReplyKeyboardMarkup(True, False)
     button_help=types.KeyboardButton(text="Нипанятнаа")
     keyboard2.add(button_help)
-
+main
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
