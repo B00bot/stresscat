@@ -63,7 +63,7 @@ grustno_handler = CommandHandler('grustno', grustno)
 dispatcher.add_handler(grustno_handler)
 
 
-btns = ReplyKeyboardMarkup(resize_keyboard=True).add(button_secret("Секрет", data=secret), button_proof("Доказательство", data=proof), button_sad("Мне грустно", data=grustno), button_help("Нипанятнаа", data=help), 
+btns = ReplyKeyboardMarkup(resize_keyboard=True).add(button_secret("Секрет", data=secret), button_proof("Доказательство", data=proof), button_sad("Мне грустно", data=grustno), button_help("Нипанятнаа", data=help)) 
 
 
 
