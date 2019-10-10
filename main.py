@@ -62,9 +62,9 @@ button_secret=secret
 button_proof=proof
 button_sad=sad
 keyboard1=telebot.types.ReplyKeyboardMarkup(True, False)
-keyboard1.add(button_secret("Секрет"), button_proof("Доказательство"), button_sad("Грустно"))
+keyboard1.add(button_secret(text="Секрет"), button_proof(text="Доказательство"), button_sad(text="Грустно"))
 keyboard2=telebot.types.ReplyKeyboardMarkup(True, False)
-keyboard2.add(button_help("Нипанятнаа"))
+keyboard2.add(button_help(text="Нипанятнаа"))
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
