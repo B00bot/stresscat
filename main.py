@@ -21,12 +21,12 @@ dispatcher.add_handler(start_handler)
 
 def secret(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
-secret_handler = MessageHandler('Секрет', secret)
+secret_handler = CommandHandler('Секрет', secret)
 dispatcher.add_handler(secret_handler)
 
 def help(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
-help_handler = MessageHandler('Нипанятнаа', help)
+help_handler = CommandHandler('Нипанятнаа', help)
 dispatcher.add_handler(help_handler)
 
 #stickers for random
@@ -49,14 +49,14 @@ def proof(bot, update):
     elif randomstick==5:
         pic=stick5
     bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
-proof_handler = MessageHandler('Доказательство', proof)
+proof_handler = CommandHandler('Доказательство', proof)
 dispatcher.add_handler(proof_handler)
 
 def grustno(bot, update):
     pic=open('s1200.jpeg', 'rb')
     bot.send_photo(chat_id=update.message.chat_id, photo=pic);
     bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
-grustno_handler = MessageHandler('Грустно', grustno)
+grustno_handler = CommandHandler('Грустно', grustno)
 dispatcher.add_handler(grustno_handler)
 def main():
     keyboard1=telebot.types.ReplyKeyboardMarkup(True, False)
@@ -68,6 +68,17 @@ def main():
     button_help=types.KeyboardButton(text="Нипанятнаа")
     keyboard2.add(button_help)
 main
+
+add_handler(MessageHandler(Filters.text,message=update.message)
+if message="Секрет":
+        secret
+elif message="Доказательство":
+        proof
+elif message="Грустно"
+        grustno
+elif message="Нипанятнаа"
+	      help 
+
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
