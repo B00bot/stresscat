@@ -3,7 +3,7 @@ import requests
 import config
 import telebot
 from telebot import types
-from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters
+from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters, ReplyKeyboardMarkup
 import os
 import logging
 import random
@@ -58,6 +58,13 @@ def grustno(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
 grustno_handler = CommandHandler('grustno', grustno)
 dispatcher.add_handler(grustno_handler)
+button_secret=secret
+button_proof=proof
+button_sad=sad
+keyboard=telebot.types.ReplyKeyboardMarkup(True, False)
+  user_markup.add(button_secret, button_proof, button_sad)
+keyboard=telebot.types.ReplyKeyboardMarkup(True, False)
+  user_markup.add(button_help)
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
