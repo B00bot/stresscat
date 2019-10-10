@@ -58,7 +58,7 @@ def grustno(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
 grustno_handler = MessageHandler('Грустно', grustno)
 dispatcher.add_handler(grustno_handler)
-def main:
+def main():
     keyboard1=telebot.types.ReplyKeyboardMarkup(True, False)
     button_secret=types.KeyboardButton(text="Секрет")
     button_proof=types.KeyboardButton(text="Доказательство")
