@@ -7,6 +7,10 @@ from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Fi
 import os
 import logging
 import random
+from aiogram.types import ReplyKeyboardRemove, \
+    ReplyKeyboardMarkup, KeyboardButton, \
+    InlineKeyboardMarkup, InlineKeyboardButton
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 PORT = int(os.environ.get('PORT', '8443'))
@@ -57,6 +61,11 @@ def grustno(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
 grustno_handler = CommandHandler('grustno', grustno)
 dispatcher.add_handler(grustno_handler)
+
+
+btns = ReplyKeyboardMarkup(resize_keyboard=True).add(button_secret("Секрет", data=secret), button_proof("Доказательство", data=proof), button_sad("Мне грустно", data=grustno), button_help("Нипанятнаа", data=help), 
+
+
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
