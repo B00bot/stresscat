@@ -70,13 +70,13 @@ def main():
 main
 
 add_handler(MessageHandler(Filters.text,message=update.message)
-if message="Секрет":
+if message=="Секрет":
         secret
-elif message="Доказательство":
+elif message=="Доказательство":
         proof
-elif message="Грустно"
+elif message=="Грустно"
         grustno
-elif message="Нипанятнаа"
+elif message=="Нипанятнаа"
 	      help 
 
 updater.start_webhook(listen="0.0.0.0",
