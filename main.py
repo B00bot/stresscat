@@ -17,13 +17,13 @@ bot = telebot.TeleBot(config.token)
 
 
 bot = telebot.TeleBot(TOKEN)
-    
 @bot.message_handler(commands=['start'])
 def startpg(message):
     startmenu = types.ReplyKeyboardMarkup(True, False)
     startmenu.row('Секрет', 'Доказательство')
     startmenu.row('Грустно')
     startmenu.row('Нипанятнаа')
+
     bot.send_message(message.chat.id, 'Привет. Есзи хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
     
 
