@@ -15,23 +15,23 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
-def startpg(message):
+def startpg(bot, update):
     startmenu = types.ReplyKeyboardMarkup(True, False)
     startmenu.row('Секрет', 'Доказательство')
     startmenu.row('Грустно')
     startmenu.row('Нипанятнаа')
-    bot.send_message(message.chat.id, 'Привет. Есзи хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
+    bot.send_message(update.message.chat.id, 'Привет. Есзи хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
     startpg_handler=CommandHandler('start', start)
     dispatcher.add_handler(startpg_handler)
 
 def secret(bot, update):
-    if update.message=='Секрет':
+    if update.message.text=='Секрет':
         bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
 secret_handler = MessageHandler(Filters.text, secret)
 dispatcher.add_handler(secret_handler)
 
 def help(bot, update):
-     if update.message=='Нипанятнаа':
+     if update.message.text=='Нипанятнаа':
         bot.sendMessage(chat_id=update.message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
 help_handler = MessageHandler(Filters.text, help)
 dispatcher.add_handler(help_handler)
@@ -55,13 +55,13 @@ def proof(bot, update):
         pic=stick4
     elif randomstick==5:
         pic=stick5
-     if update.message=='Доказательство':
+     if update.message.text=='Доказательство':
         bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
 proof_handler = MessageHandler(Filters.text, proof)
 dispatcher.add_handler(proof_handler)
 
 def grustno(bot, update):
-    if update.message=='Грустно':
+    if update.message.text=='Грустно':
         pic=open('s1200.jpeg', 'rb')
         bot.send_photo(chat_id=update.message.chat_id, photo=pic);
         bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
