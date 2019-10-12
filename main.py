@@ -16,7 +16,7 @@ dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
 
-
+@bot.message_handler(commands=["start"])
 def startpg(bot, update):
     startmenu=types.ReplyKeyboardMarkup(True, False)
     startmenu.row('Секрет', 'Доказательство')
