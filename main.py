@@ -16,11 +16,12 @@ dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
 def startpg(bot, update):
-    startmenu = telebot.types.ReplyKeyboardMarkup(True, False)
+    markup=telebot.types.ReplyKeyboardMarkup
+    startmenu=markup(True, False)
     startmenu.row('Секрет', 'Доказательство')
     startmenu.row('Грустно')
     startmenu.row('Нипанятнаа')
-    bot.send_message(update.message.chat.id, 'Привет. Есзи хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
+    bot.send_message(update.message.chat.id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
 startpg_handler=CommandHandler('start', startpg)
 dispatcher.add_handler(startpg_handler)
 
