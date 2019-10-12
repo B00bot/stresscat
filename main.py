@@ -21,8 +21,8 @@ def startpg(bot, update):
     startmenu.row('Грустно')
     startmenu.row('Нипанятнаа')
     bot.send_message(update.message.chat.id, 'Привет. Есзи хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
-    startpg_handler=CommandHandler('start', start)
-    dispatcher.add_handler(startpg_handler)
+startpg_handler=CommandHandler('start', start)
+dispatcher.add_handler(startpg_handler)
 
 def secret(bot, update):
     if update.message.text=='Секрет':
