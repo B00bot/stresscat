@@ -22,7 +22,7 @@ def startpg(message):
     startmenu.row('Грустно')
     startmenu.row('Нипанятнаа')
     bot.send_message(message.chat.id, 'Привет. Есзи хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
-    
+    dispatcher.add_handler(startpg_handler)
 
 def secret(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
