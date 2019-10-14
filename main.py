@@ -17,6 +17,8 @@ startmenu=types.ReplyKeyboardMarkup(True, False)
 startmenu.row('Секрет', 'Доказательство')
 startmenu.row('Грустно')
 startmenu.row('Нипанятнаа')
+
+@bot.message_handler(content_types=["text"])
 bot.send_message(message.chat.id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
 
 @bot.message_handler(content_types=["text"])
