@@ -19,6 +19,13 @@ startmenu.row('Секрет', 'Доказательство')
 startmenu.row('Грустно')
 startmenu.row('Нипанятнаа')
 
+#stickers for random
+stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
+stick2="CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE"
+stick3="CAADBAADfQADzjkIDSgZQLclD7jiFgQ"
+stick4="CAADBAADRAADzjkIDbv4-ULKD6hiFgQ"
+stick5="CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"
+
 @bot.message_handler(content_types=["text"])
 def secret(message):
     incoming=message.text
@@ -36,13 +43,6 @@ def help(message):
     incoming=message.text
     if incoming=='Нипанятнаа':
         bot.sendMessage(chat_id=message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
-
-#stickers for random
-stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
-stick2="CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE"
-stick3="CAADBAADfQADzjkIDSgZQLclD7jiFgQ"
-stick4="CAADBAADRAADzjkIDbv4-ULKD6hiFgQ"
-stick5="CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"
 
 @bot.message_handler(content_types=["text"])
 def proof(message):
