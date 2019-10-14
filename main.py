@@ -31,25 +31,25 @@ updater.dispatcher.add_handler(message_handler(bot, update)
 
 
 @bot.message_handler(content_types=["text"])
-def secret(message):
+def secret(update.message):
     incoming=message.text
     if incoming=='/start':
-        bot.send_message(message.chat.id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
+        bot.send_message(chat_id=update.message.chat_id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
 
 @bot.message_handler(content_types=["text"])
-def secret(message):
+def secret(update.message):
     incoming=message.text
     if incoming=='Секрет':
-        bot.sendMessage(chat_id=message.chat_id, text="Мой создатель любит Лапу")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
 
 @bot.message_handler(content_types=["text"])
-def help(message):
+def help(update.message):
     incoming=message.text
     if incoming=='Нипанятнаа':
-        bot.sendMessage(chat_id=message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
+        bot.sendMessage(chat_id=update.message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
 
 @bot.message_handler(content_types=["text"])
-def proof(message):
+def proof(update.message):
     randomstick=random.randint(1,5)
     if randomstick==1:
         pic=stick1
@@ -63,15 +63,15 @@ def proof(message):
         pic=stick5
     incoming=message.text
     if incoming=='Доказательство':
-        bot.sendSticker(chat_id=message.chat_id, sticker=pic)
+        bot.sendSticker(chat_id=update.message.chat_id, sticker=pic)
 
 @bot.message_handler(content_types=["text"])
-def grustno(message):
+def grustno(update.message):
     incoming=message.text
     if incoming=='Грустно':
         pic=open('s1200.jpeg', 'rb')
-        bot.send_photo(chat_id=message.chat_id, photo=pic)
-        bot.sendMessage(chat_id=message.chat_id, text="Ни грустииии")
+        bot.send_photo(chat_id=update.message.chat_id, photo=pic)
+        bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
