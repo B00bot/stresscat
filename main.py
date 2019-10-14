@@ -13,14 +13,11 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 PORT = int(os.environ.get('PORT', '8443'))
 bot = telebot.TeleBot(config.token)
 
-
-@bot.message_handler(commands=["start"])
-def startpg(message):
-    startmenu=types.ReplyKeyboardMarkup(True, False)
-    startmenu.row('Секрет', 'Доказательство')
-    startmenu.row('Грустно')
-    startmenu.row('Нипанятнаа')
-    bot.send_message(message.chat.id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
+startmenu=types.ReplyKeyboardMarkup(True, False)
+startmenu.row('Секрет', 'Доказательство')
+startmenu.row('Грустно')
+startmenu.row('Нипанятнаа')
+bot.send_message(message.chat.id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
 
 @bot.message_handler(content_types=["text"])
 def secret(message):
