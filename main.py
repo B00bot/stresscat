@@ -18,8 +18,7 @@ startmenu=types.ReplyKeyboardMarkup(True, False)
 startmenu.row('Секрет', 'Доказательство')
 startmenu.row('Грустно')
 startmenu.row('Нипанятнаа')
-
-dispatcher.add_
+updater.dispatcher.add_handler(message_handler(bot, update)
 
 #stickers for random
 stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
