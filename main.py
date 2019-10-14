@@ -3,11 +3,12 @@ import requests
 import config
 import telebot
 from telebot import types
-from telegram.ext import CommandHandler, MessageHandler, Filters, Updater
+from telegram.ext import CommandHandler, MessageHandler, Filters, Updater, Dispatcher
 import os
 import logging
 import random
 updater=Updater
+Dispatcher=Dispatcher
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 PORT = int(os.environ.get('PORT', '8443'))
@@ -68,8 +69,8 @@ def grustno(message):
         bot.send_photo(chat_id=message.chat_id, photo=pic)
         bot.sendMessage(chat_id=message.chat_id, text="Ни грустииии")
 
-self.updater.start_webhook(listen="0.0.0.0",
+updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
-self.updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
-self.updater.idle()
+updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
+updater.idle()
