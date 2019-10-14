@@ -8,7 +8,7 @@ import os
 import logging
 import random
 updater=Updater(config token)
-dispatcher=Dispatcher(bot, update
+dispatcher=Dispatcher(bot, update)
 TOKEN=config.token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
