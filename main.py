@@ -19,6 +19,8 @@ startmenu.row('Секрет', 'Доказательство')
 startmenu.row('Грустно')
 startmenu.row('Нипанятнаа')
 
+dispatcher.add_
+
 #stickers for random
 stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
 stick2="CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE"
