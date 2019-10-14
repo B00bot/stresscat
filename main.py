@@ -3,11 +3,12 @@ import requests
 import config
 import telebot
 from telebot import types
-from telegram.ext import CommandHandler, MessageHandler, Filters, Updater
+from telegram.ext import CommandHandler, MessageHandler, Filters, Updater, Dispatcher
 import os
 import logging
 import random
 updater=Updater(config.token)
+dispatcher=Dispatcher(config token)
 TOKEN=config.token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
