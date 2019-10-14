@@ -15,18 +15,20 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 PORT = int(os.environ.get('PORT', '8443'))
 bot = telebot.TeleBot(config.token)
 
-startmenu=types.ReplyKeyboardMarkup(True, False)
-startmenu.row('Секрет', 'Доказательство')
-startmenu.row('Грустно')
-startmenu.row('Нипанятнаа')
-updater.dispatcher.add_handler(message_handler(bot, update)
-
 #stickers for random
 stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
 stick2="CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE"
 stick3="CAADBAADfQADzjkIDSgZQLclD7jiFgQ"
 stick4="CAADBAADRAADzjkIDbv4-ULKD6hiFgQ"
 stick5="CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"
+
+
+startmenu=types.ReplyKeyboardMarkup(True, False)
+startmenu.row('Секрет', 'Доказательство')
+startmenu.row('Грустно')
+startmenu.row('Нипанятнаа')
+updater.dispatcher.add_handler(message_handler(bot, update)
+
 
 @bot.message_handler(content_types=["text"])
 def secret(message):
