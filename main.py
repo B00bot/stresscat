@@ -8,7 +8,7 @@ import os
 import logging
 import random
 updater=Updater(config.token)
-TOKEN=
+TOKEN=config.token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 PORT = int(os.environ.get('PORT', '8443'))
@@ -71,6 +71,6 @@ def grustno(message):
 
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
-                      url_path=config.token)
-updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
+                      url_path=TOKEN)
+updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + TOKEN)
 updater.idle()
