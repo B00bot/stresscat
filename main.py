@@ -21,7 +21,7 @@ startmenu.row('Нипанятнаа')
 @bot.message_handler(content_types=["text"])
 def secret(message):
     incoming=message.text
-    if incoming=='/start'
+    if incoming=='/start':
         bot.send_message(message.chat.id, 'Привет. Если хочешь узнать секрет, нажми секрет. Если нужно доказательство, нажми Доказательство. Если грустно, нажми Грустно. Если нужна помошь - нажми Нипанятнаа', reply_markup=startmenu)
 
 @bot.message_handler(content_types=["text"])
