@@ -7,8 +7,7 @@ from telegram.ext import CommandHandler, MessageHandler, Filters, Updater, Dispa
 import os
 import logging
 import random
-updater=Updater
-Dispatcher=Dispatcher
+updater=Updater(config.token)
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
 PORT = int(os.environ.get('PORT', '8443'))
@@ -72,5 +71,5 @@ def grustno(message):
 updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
-updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
+updater.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
 bot.updater.idle()
