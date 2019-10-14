@@ -68,8 +68,8 @@ def grustno(message):
         bot.send_photo(chat_id=message.chat_id, photo=pic)
         bot.sendMessage(chat_id=message.chat_id, text="Ни грустииии")
 
-updater.start_webhook(listen="0.0.0.0",
+updater.bot.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
-updater.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
+updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
 updater.idle()
