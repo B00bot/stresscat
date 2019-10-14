@@ -7,8 +7,8 @@ from telegram.ext import CommandHandler, MessageHandler, Filters, Updater, Dispa
 import os
 import logging
 import random
-updater=Updater(bot, update)
-dispatcher=Dispatcher(config token)
+updater=Updater(config token)
+dispatcher=Dispatcher(bot, update
 TOKEN=config.token
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                      level=logging.INFO)
