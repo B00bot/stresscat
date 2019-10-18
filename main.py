@@ -29,7 +29,7 @@ help_handler = CommandHandler('help', help)
 dispatcher.add_handler(help_handler)
 
 #stickers for random
-stickers = [CAADAgADCwADlp-MDpuVH3sws_a7FgQ, CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE, CAADBAADfQADzjkIDSgZQLclD7jiFgQ, CAADBAADRAADzjkIDbv4-ULKD6hiFgQ, CAADAgAD0gIAArnzlwt4AXAE0tVijhYE]
+stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE", "CAADBAADfQADzjkIDSgZQLclD7jiFgQ", "CAADBAADRAADzjkIDbv4-ULKD6hiFgQ", "CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"]
 
 def proof(bot, update):
     randomstick=random.randint(0,4)
