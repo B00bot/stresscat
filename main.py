@@ -29,15 +29,11 @@ help_handler = CommandHandler('help', help)
 dispatcher.add_handler(help_handler)
 
 #stickers for random
-stick1="CAADAgADCwADlp-MDpuVH3sws_a7FgQ"
-stick2="CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE"
-stick3="CAADBAADfQADzjkIDSgZQLclD7jiFgQ"
-stick4="CAADBAADRAADzjkIDbv4-ULKD6hiFgQ"
-stick5="CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"
+stickers = [CAADAgADCwADlp-MDpuVH3sws_a7FgQ, CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE, CAADBAADfQADzjkIDSgZQLclD7jiFgQ, CAADBAADRAADzjkIDbv4-ULKD6hiFgQ, CAADAgAD0gIAArnzlwt4AXAE0tVijhYE]
 
 def proof(bot, update):
-    randomstick=random.randint(1,5)
-    pic="stick"+randomstick
+    randomstick=random.randint(0,4)
+    pic=stickers[randomstick]
     bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
