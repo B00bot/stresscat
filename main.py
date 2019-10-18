@@ -37,16 +37,7 @@ stick5="CAADAgAD0gIAArnzlwt4AXAE0tVijhYE"
 
 def proof(bot, update):
     randomstick=random.randint(1,5)
-    if randomstick==1:
-        pic=stick1
-    elif randomstick==2:
-        pic=stick2
-    elif randomstick==3:
-        pic=stick3
-    elif randomstick==4:
-        pic=stick4
-    elif randomstick==5:
-        pic=stick5
+    pic="stick"+randomstick
     bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
