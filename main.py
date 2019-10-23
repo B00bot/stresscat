@@ -14,19 +14,26 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
+markup = types.ReplyKeyboardMarkup()
+button1 = types.KeyboardButton('/secret')
+button2 = types.KeyboardButton('/proof')
+button3 = types.KeyboardButton('/grustno')
+button4 = types.KeyboardButton('/help')
+markup.row(button1, button2, button3)
+markup.row(button4)
 
 def start(bot, update):
-    bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
+    bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno", reply_markup=markup)	
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
 def secret(bot, update):
-        bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
+        bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу", reply_markup=markup)
 secret_handler = CommandHandler('secret', secret)
 dispatcher.add_handler(secret_handler)
 
 def help(bot, update):
-        bot.sendMessage(chat_id=update.message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
+        bot.sendMessage(chat_id=update.message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno", reply_markup=markup)	
 help_handler = CommandHandler('help', help)
 dispatcher.add_handler(help_handler)
 
@@ -36,14 +43,14 @@ stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE
 def proof(bot, update):
     randomstick=random.randint(0,10)
     pic=stickers[randomstick]
-    bot.sendSticker(chat_id=update.message.chat_id, sticker=pic);
+    bot.sendSticker(chat_id=update.message.chat_id, sticker=pic, reply_markup=markup);
 proof_handler = CommandHandler('proof', proof)
 dispatcher.add_handler(proof_handler)
 
 def grustno(bot, update):
     pic=open('s1200.jpeg', 'rb')
     bot.send_photo(chat_id=update.message.chat_id, photo=pic);
-    bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии")
+    bot.sendMessage(chat_id=update.message.chat_id, text="Ни грустииии", reply_markup=markup)
 grustno_handler = CommandHandler('grustno', grustno)
 dispatcher.add_handler(grustno_handler)
 
@@ -52,10 +59,3 @@ updater.start_webhook(listen="0.0.0.0",
                       url_path=config.token)
 updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
 
-markup = types.ReplyKeyboardMarkup()
-button1 = types.KeyboardButton('/secret')
-button2 = types.KeyboardButton('/proof')
-button3 = types.KeyboardButton('/grustno')
-button4 = types.KeyboardButton('/help')
-markup.row(button1, button2, button3)
-markup.row(button4)
