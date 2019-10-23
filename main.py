@@ -13,10 +13,6 @@ PORT = int(os.environ.get('PORT', '8443'))
 updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
-def start(bot, update):
-        bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
-start_handler = CommandHandler('start', start)
-dispatcher.add_handler(start_handler)
 
 def keyboard(message):
     markup = types.ReplyKeyboardMarkup()
@@ -28,7 +24,11 @@ def keyboard(message):
     markup.row(button4)
     bot.send_message(message.chat.id, 'Main menu: ', reply_markup=markup)
 
-
+def start(bot, update):
+        bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
+        keyboard
+start_handler = CommandHandler('start', start)
+dispatcher.add_handler(start_handler)
 
 def secret(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
