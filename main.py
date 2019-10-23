@@ -18,6 +18,18 @@ def start(bot, update):
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
+def keyboard(message):
+    markup = types.ReplyKeyboardMarkup()
+    button1 = types.KeyboardButton('/secret')
+    button2 = types.KeyboardButton('/proof')
+    button3 = types.KeyboardButton('/grustno')
+    button4 = types.KeyboardButton('/help')
+    markup.row(button1, button2, button3)
+    markup.row(button4)
+    bot.send_message(message.chat.id, 'Main menu: ', reply_markup=markup)
+
+
+
 def secret(bot, update):
         bot.sendMessage(chat_id=update.message.chat_id, text="Мой создатель любит Лапу")
 secret_handler = CommandHandler('secret', secret)
