@@ -17,14 +17,6 @@ bot = telebot.TeleBot(config.token)
 
 def start(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
-    markup = types.ReplyKeyboardMarkup()
-    button1 = types.KeyboardButton('/secret')
-    button2 = types.KeyboardButton('/proof')
-    button3 = types.KeyboardButton('/grustno')
-    button4 = types.KeyboardButton('/help')
-    markup.row(button1, button2, button3)
-    markup.row(button4)
-    bot.send_message(update.message.chat.id, 'Main menu: ', reply_markup=markup)
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
@@ -59,3 +51,13 @@ updater.start_webhook(listen="0.0.0.0",
                       port=PORT,
                       url_path=config.token)
 updater.bot.set_webhook("https://stresscatbot.herokuapp.com/" + config.token)
+
+if __name__ == "__main__":
+    markup = types.ReplyKeyboardMarkup()
+    button1 = types.KeyboardButton('/secret')
+    button2 = types.KeyboardButton('/proof')
+    button3 = types.KeyboardButton('/grustno')
+    button4 = types.KeyboardButton('/help')
+    markup.row(button1, button2, button3)
+    markup.row(button4)
+    bot.send_message(update.message.chat.id, 'Main menu: ', reply_markup=markup)
