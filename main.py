@@ -24,7 +24,7 @@ def start(bot, update):
     button4 = types.KeyboardButton('/help')
     markup.row(button1, button2, button3)
     markup.row(button4)
-    bot.send_message(message.chat.id, 'Main menu: ', reply_markup=markup)
+    bot.send_message(update.message.chat.id, 'Main menu: ', reply_markup=markup)
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
