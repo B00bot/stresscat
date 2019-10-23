@@ -60,4 +60,4 @@ if __name__ == "__main__":
     button4 = types.KeyboardButton('/help')
     markup.row(button1, button2, button3)
     markup.row(button4)
-    bot.send_message(update.message.chat.id, 'Main menu: ', reply_markup=markup)
+    bot.send_message(message.chat.id, 'Main menu: ', reply_markup=markup)
