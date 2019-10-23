@@ -14,7 +14,9 @@ updater = Updater(config.token)
 dispatcher = updater.dispatcher
 bot = telebot.TeleBot(config.token)
 
-def keyboard(message):
+
+def start(bot, update):
+    bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
     markup = types.ReplyKeyboardMarkup()
     button1 = types.KeyboardButton('/secret')
     button2 = types.KeyboardButton('/proof')
@@ -23,10 +25,6 @@ def keyboard(message):
     markup.row(button1, button2, button3)
     markup.row(button4)
     bot.send_message(message.chat.id, 'Main menu: ', reply_markup=markup)
-
-def start(bot, update):
-        bot.sendMessage(chat_id=update.message.chat_id, text="Привет, если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
-        keyboard
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
