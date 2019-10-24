@@ -49,6 +49,27 @@ def grustno(bot, update):
 grustno_handler = CommandHandler('grustno', grustno)
 dispatcher.add_handler(grustno_handler)
 ##################################################################################################################################
+#MENU
+##################################################################################################################################
+def build_menu(buttons,
+               n_cols,
+               header_buttons=None,
+               footer_buttons=None):
+    menu = [buttons[i:i + n_cols] for i in range(0, len(buttons), n_cols)]
+    if header_buttons:
+        menu.insert(0, [header_buttons])
+    if footer_buttons:
+        menu.append([footer_buttons])
+    return menu
+button_list = [
+    KeyboardButton("Секрет", callback_data=secret),
+    KeyboardButton("Доказательство", callback_data=proof),
+    KeyboardButton("Грустнаа", callback_data=grustno)
+    KeyboardButton("Памагити", callback_data=help)
+]
+reply_markup = ReplyKeyboardMarkup(util.build_menu(button_list, n_cols=2))
+bot.send_message(..., "A two-column menu", reply_markup=reply_markup)
+###################################################################################################################################
 
 #ставим вебхук
 updater.start_webhook(listen="0.0.0.0",
