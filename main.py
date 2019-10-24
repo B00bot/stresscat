@@ -29,9 +29,9 @@ def secret(bot, update):
 secret_handler = CommandHandler('secret', secret)
 dispatcher.add_handler(secret_handler)
 
-def help(bot, update):
+def helper(bot, update):
     bot.sendMessage(chat_id=update.message.chat_id, text="Если хочешь узнать тайну, отправь /secret Если нужны доказательства - отправь /proof Если грустно - отправь /grustno")	
-help_handler = CommandHandler('help', help)
+help_handler = CommandHandler('help', helper)
 dispatcher.add_handler(help_handler)
 
 def proof(bot, update):
@@ -65,10 +65,10 @@ button_list = [
     KeyboardButton("Секрет", callback_data=secret),
     KeyboardButton("Доказательство", callback_data=proof),
     KeyboardButton("Грустнаа", callback_data=grustno)
-    KeyboardButton("Памагити", callback_data='/help')
+    KeyboardButton("Памагити", callback_data=helper)
 ]
-reply_markup = ReplyKeyboardMarkup(util.build_menu(button_list, n_cols=2))
-bot.send_message(..., "A two-column menu", reply_markup=reply_markup)
+reply_markup = ReplyKeyboardMarkup(util.build_menu(button_list, n_cols=3))
+bot.send_message(..., "выбери действие", reply_markup=reply_markup)
 ###################################################################################################################################
 
 #ставим вебхук
