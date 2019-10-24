@@ -62,10 +62,10 @@ def build_menu(buttons,
         menu.append([footer_buttons])
     return menu
 button_list = [
-    KeyboardButton("Секрет", callback_data=secret),
-    KeyboardButton("Доказательство", callback_data=proof),
-    KeyboardButton("Грустнаа", callback_data=grustno)
-    KeyboardButton("Памагити", callback_data=helper)
+    KeyboardButton("Секрет", callback_data="/secret"),
+    KeyboardButton("Доказательство", callback_data="/proof"),
+    KeyboardButton("Грустнаа", callback_data="/grustno"),
+    KeyboardButton("Памагити", callback_data="/help")
 ]
 reply_markup = ReplyKeyboardMarkup(util.build_menu(button_list, n_cols=3))
 bot.send_message(..., "выбери действие", reply_markup=reply_markup)
