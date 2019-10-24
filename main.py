@@ -15,7 +15,10 @@ stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    bot.send_message(msg.chat.id, "Если хочешь узнать тайну, нажми ❤️ секрет ❤️ Если нужны доказательства - нажми 😘 Докажи 😘 Если грустно - нажми 😞 Грустно 😞 Если ничего не понятно - нажми 🤷‍♂️ нипанятнаа 🤷‍♂️", reply_markup=keyb)
+    bot.send_message(msg.chat.id, """Если хочешь узнать тайну, нажми ❤️ секрет ❤️ 
+    Если нужны доказательства - нажми 😘 Докажи 😘 
+    Если грустно - нажми 😞 Грустно 😞 
+    Если ничего не понятно - нажми 🤷‍♂️ нипанятнаа 🤷‍♂️""", reply_markup=keyb)
 
 @bot.message_handler(content_types=['text'])
 def amy_message(msg):
@@ -31,7 +34,10 @@ def amy_message(msg):
         bot.send_photo(msg.chat.id, pic)
         bot.send_message(msg.chat.id, "Ни грустииии", reply_markup=keyb)
     elif msg.text.lower() == '🤷‍♂️ нипанятнаа 🤷‍♂️':
-         bot.send_message(msg.chat.id, "Если хочешь узнать тайну, нажми ❤️ секрет ❤️ Если нужны доказательства - нажми 😘 Докажи 😘 Если грустно - нажми 😞 Грустно 😞 Если ничего не понятно - нажми 🤷‍♂️ нипанятнаа 🤷‍♂️", reply_markup=keyb)
+         bot.send_message(msg.chat.id, """Если хочешь узнать тайну, нажми ❤️ секрет ❤️ 
+    Если нужны доказательства - нажми 😘 Докажи 😘 
+    Если грустно - нажми 😞 Грустно 😞 
+    Если ничего не понятно - нажми 🤷‍♂️ нипанятнаа 🤷‍♂️""", reply_markup=keyb)
 
 
 @server.route('/' + TOKEN, methods=['POST'])
