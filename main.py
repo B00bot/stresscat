@@ -4,6 +4,7 @@ import config
 import telebot
 from telebot import types
 from telegram.ext import Updater, Dispatcher, CommandHandler, MessageHandler, Filters
+from telegram import ReplyKeyboardMarkup, KeyboardButton
 import os
 import logging
 import random
