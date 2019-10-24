@@ -21,8 +21,8 @@ def start(bot, update):
     button2 = types.KeyboardButton('/proof')
     button3 = types.KeyboardButton('/grustno')
     button4 = types.KeyboardButton('/help')
-markup.row(button1, button2, button3)
-markup.row(button4)
+    markup.row(button1, button2, button3)
+    markup.row(button4)
 
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
