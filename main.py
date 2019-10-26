@@ -26,18 +26,18 @@ def start_message(msg):
 @bot.message_handler(content_types=['text'])
 def amy_message(msg):
     if msg.text.lower() == '❤️ секрет ❤️':
-        bot.send_message(msg.chat.id, "Мой создатель любит тебя", reply_markup=keyb)
+        bot.reply_to(msg, "Мой создатель любит тебя", reply_markup=keyb)
     elif msg.text.lower() == '😘 докажи 😘':
         randomstick = random.randint(0, 10)
         pic = stickers[randomstick]
-        bot.send_message(msg.chat.id, "Создатель просил передать...", reply_markup=keyb)
+        bot.reply_to(msg, "Создатель просил передать...", reply_markup=keyb)
         bot.send_sticker(msg.chat.id, pic)
     elif msg.text.lower() == '😞 грустно 😞':
         pic=open('s1200.jpeg', 'rb')
         bot.send_photo(msg.chat.id, pic)
-        bot.send_message(msg.chat.id, "Ни грустииии", reply_markup=keyb)
+        bot.reply_to(msg, "Ни грустииии", reply_markup=keyb)
     elif msg.text.lower() == '🤷‍♂️ нипанятнаа 🤷‍♂️':
-        bot.send_message(msg.chat.id, """Если хочешь узнать тайну 
+        bot.reply_to(msg, """Если хочешь узнать тайну 
 нажми ❤️ секрет ❤️ 
 Если нужны доказательства 
 нажми 😘 Докажи 😘 
