@@ -25,7 +25,7 @@ def start_message(msg):
 
 @bot.message_handler(content_types=['text'])
 def amy_message(msg):
-    if msg.text.lower() == '❤️ секрет ❤️':
+    if msg.text.lower() == '❤️ Секрет ❤️':
         bot.reply_to(msg, "Мой создатель любит тебя", reply_markup=keyb)
     elif msg.text.lower() == '😘 докажи 😘':
         randomstick = random.randint(0, 10)
@@ -38,7 +38,7 @@ def amy_message(msg):
         bot.reply_to(msg, "Ни грустииии", reply_markup=keyb)
     elif msg.text.lower() == '🤷‍♂️ нипанятнаа 🤷‍♂️':
         bot.reply_to(msg, """Если хочешь узнать тайну 
-нажми ❤️ секрет ❤️ 
+нажми ❤️ Секрет ❤️ 
 Если нужны доказательства 
 нажми 😘 Докажи 😘 
 Если грустно 
