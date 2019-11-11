@@ -8,7 +8,7 @@ from flask import Flask, request
 import sqlalchemy
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, MetaData, Table
 from sqlalchemy.orm import mapper, sessionmaker
-from model import Users
+from model import base
 import random
 import keyboard
 from keyboard import keyb
@@ -24,8 +24,8 @@ def user_comand(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    newtgid= Users.tgid(msg.from_user.id)
-    newuser = Users.name(msg.from_user.first_name)
+    newtgid= base.tgid(msg.from_user.id)
+    newuser = base.name(msg.from_user.first_name)
     session.add(newuser, newtgid)
     bot.send_message(msg.chat.id, """Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
