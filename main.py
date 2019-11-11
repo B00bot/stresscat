@@ -20,7 +20,7 @@ stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE
 
 @bot.message_handler(commands=['user'])
 def user_message(msg):
-    bot.send_message(msg.chat.id,  Botusers.__repr__)
+    bot.send_message(msg.chat.id,  Botusers)
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
