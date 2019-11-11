@@ -16,8 +16,8 @@ class dbm:
         self.session.commit()
         self.session.close()
 
-class Users(base):
-    __tablename__ = "Users"
+class Botusers(base):
+    __tablename__ = "Botusers"
     tgid = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     
