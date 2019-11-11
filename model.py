@@ -8,7 +8,24 @@ base = declarative_base(engine)
 session = Session()
 
 class dbm:
-    def __enter__
-  
-class users(base):
-  
+    __slots__ = ['session']
+    def __enter__(self):
+        self.session = session()
+        return self.session
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.session.commit()
+        self.session.close()
+
+class Users(base):
+    __tablename__ = "Users"
+    tgid = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False)
+    
+def __str__(self, tgid, name):
+    self.tgid = tgid
+    self.name = name
+
+    
+def __repr__(self):
+    return "'%s', '%s'" % \
+           (self.tgid, self.name)
