@@ -1,8 +1,8 @@
 from sqlalchemy import Column, Integer, String, Boolean, MetaData, Table, create_engine
 from sqlalchemy.orm import mapper, sessionmaker
-import model
+from model import emgine, session, base
 meta = MetaData()
-user = Table(
+Users = Table(
    'users', meta,
    Column('id', Integer, primary_key = True),
    Column('name', String),
