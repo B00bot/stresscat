@@ -6,7 +6,7 @@ from config import *
 from config import TOKEN
 from flask import Flask, request
 import sqlalchemy
-from sqlalchemy import create_engine, Column, Integer, String, Boolean
+from sqlalchemy import create_engine, Column, Integer, String, Boolean, MetaData
 from sqlalchemy.orm import mapper, sessionmaker
 import random
 import keyboard
