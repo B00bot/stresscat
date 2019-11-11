@@ -2,8 +2,8 @@ from sqlalchemy import Column, Integer, String, Boolean, MetaData, Table, create
 from sqlalchemy.orm import mapper, sessionmaker
 from model import engine, session, base
 meta = MetaData()
-Users = Table(
-   'users', meta,
+Botusers = Table(
+   'botusers', meta,
    Column('id', Integer, primary_key = True),
    Column('name', String),
 )
