@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Boolean, MetaData, Table
+from sqlalchemy import Column, Integer, String, Boolean, MetaData, Table, create_engine
 from sqlalchemy.orm import mapper, sessionmaker
 meta = MetaData()
 user = Table(
