@@ -24,7 +24,7 @@ def user_comand(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    newtgid= Users.tgid(user_id=msg.from_user.id)
+    newtgid= Users.tgid(msg.from_user.id)
     newuser = Users.name(msg.from_user.first_name)
     session.add(newuser, newtgid)
     bot.send_message(msg.chat.id, """Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
