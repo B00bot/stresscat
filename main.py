@@ -20,7 +20,9 @@ stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE
 
 @bot.message_handler(commands=['user'])
 def user_message(msg):
-    bot.send_message(msg.chat.id, msg.from_user.id)
+    tgid=msg.from_user.id
+    name=msg.from_user.first_name
+    bot.send_message(msg.chat.id,"{msg.from_user.id} {msg.from_user.id}")
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
