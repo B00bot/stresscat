@@ -25,13 +25,7 @@ Session.configure(bind=engine)
 
 session = Session()
 
-meta = MetaData()
-user = Table(
-   'users', meta,
-   Column('id', Integer, primary_key = True),
-   Column('name', String),
-)
-meta.create_all(engine)
+
 
 class User(user):
     def __init__(self, name, id):
