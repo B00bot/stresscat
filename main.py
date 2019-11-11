@@ -8,41 +8,19 @@ from flask import Flask, request
 import sqlalchemy
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, MetaData, Table
 from sqlalchemy.orm import mapper, sessionmaker
+import model
 import random
 import keyboard
 from keyboard import keyb
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
+
 stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE", "CAADBAADfQADzjkIDSgZQLclD7jiFgQ", "CAADBAADRAADzjkIDbv4-ULKD6hiFgQ", "CAADAgAD0gIAArnzlwt4AXAE0tVijhYE", "CAADAgAD2gEAAsdjXBUX3pc5V_GYDBYE", "CAADBAADmAADzjkIDRaa2RCZbCJWFgQ", "CAADBAADkwADzjkIDYydFNXPYxHoFgQ", "CAADAgAD4w0AAqgILwh6UH_uBQWn_RYE", "CAADAgADBAgAAhhC7ghzMDDTpZ3HjRYE", "CAADAgADCAADl_TGFHTucAABYtoR1BYE"]
 
-Session = sessionmaker()
-
-engine = create_engine("postgres://kdbqihrelkjdyh:5703c7cbdcbb12d999e210368936b8b734940f07d4b6357ff3d5eed99d6e3b91@ec2-54-247-85-251.eu-west-1.compute.amazonaws.com:5432/d6lcrvpadm6o79")
-
-Session.configure(bind=engine)
-
-
-session = Session()
-
-
-
-class User(user):
-    def __init__(self, name, id):
-        self.id = id
-        self.name = name
-
-    def commit(self):
-        session.add(self)
-        session.commit()   
-
-    def __repr__(self):
-        return "<User('%s','%s')>" % (self.name, self.id)
-mapper(User, user) 
- 
 @bot.message_handler(commands=['user'])
 def user_comand(msg):
-    bot.send_message(msg.chat.id, user)
+    bot.send_message(msg.chat.id, Users.__repr__)
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
