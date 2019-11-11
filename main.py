@@ -33,7 +33,7 @@ user = Table(
 )
 meta.create_all(engine)
 
-class user(user):
+class User(user):
     def __init__(self, name, id):
         self.id = id
         self.name = name
