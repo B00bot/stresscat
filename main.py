@@ -45,7 +45,7 @@ class user(user):
 mapper(User, user) 
  
 @bot.message_handler(commands=['user'])
-def user_comand(msg)
+def user_comand(msg):
     bot.send_message(msg.chat.id, user)
 
 @bot.message_handler(commands=['start'])
