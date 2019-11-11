@@ -21,11 +21,11 @@ class Users(base):
     tgid = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     
-def __str__(self, tgid, name):
-    self.tgid = tgid
-    self.name = name
+    def __str__(self, tgid, name):
+        self.tgid = tgid
+        self.name = name
 
     
-def __repr__(self):
-    return "'%s', '%s'" % \
-           (self.tgid, self.name)
+    def __repr__(self):
+        return "'%s', '%s'" % \
+               (self.tgid, self.name)
