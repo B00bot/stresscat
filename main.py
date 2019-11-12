@@ -19,10 +19,6 @@ server = Flask(__name__)
 
 stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE", "CAADBAADfQADzjkIDSgZQLclD7jiFgQ", "CAADBAADRAADzjkIDbv4-ULKD6hiFgQ", "CAADAgAD0gIAArnzlwt4AXAE0tVijhYE", "CAADAgAD2gEAAsdjXBUX3pc5V_GYDBYE", "CAADBAADmAADzjkIDRaa2RCZbCJWFgQ", "CAADBAADkwADzjkIDYydFNXPYxHoFgQ", "CAADAgAD4w0AAqgILwh6UH_uBQWn_RYE", "CAADAgADBAgAAhhC7ghzMDDTpZ3HjRYE", "CAADAgADCAADl_TGFHTucAABYtoR1BYE"]
 
-@bot.message_handler(commands=['user'])
-def user_message(msg):
-    bot.send_message(msg.chat.id, f'Ты {msg.from_user.first_name}, id={msg.from_user.id}')
-
 @bot.message_handler(commands=['start'])
 def start_message(msg):
     newid=msg.from_user.id
@@ -38,6 +34,14 @@ def start_message(msg):
 нажми 😞 Грустно 😞 
 Если ничего не понятно
 нажми 🤷‍♂️ Нипанятнаа 🤷‍♂️''', reply_markup=keyb)
+    
+    
+@bot.message_handler(commands=['user'])
+def user_message(msg):
+    yourid = msg.from_user.id
+    for id, name, in session.query(botuser.id, botuser.name):
+        print id, name
+    bot.send_message(msg.chat.id, f'Ты {msg.from_user.first_name}, id={msg.from_user.id}')
 
 @bot.message_handler(content_types=['text'])
 def amy_message(msg):
