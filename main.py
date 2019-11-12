@@ -27,8 +27,8 @@ def user_message(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    tgid=Botuser(f'{msg.from_user.id}')
-    name=Botuser(f'{msg.from_user.first_name}')
+    tgid=Botusers(f'{msg.from_user.id}')
+    name=Botusers(f'{msg.from_user.first_name}')
     session.add(tgid)
     session.add(name)
     session.commit()
