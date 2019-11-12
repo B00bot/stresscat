@@ -27,10 +27,10 @@ def user_message(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    tgid=Botuser(f'{from_user.id}')
-    name=Botuser(f'{from_user.first_name}')
+    tgid=Botusers(f'{from_user.id}')
+    name=Botusers(f'{from_user.first_name}')
     session.add(tgid)
-    session.add Botuser(name)
+    session.add(name)
     session.commit()
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
