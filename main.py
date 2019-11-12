@@ -8,7 +8,7 @@ from flask import Flask, request
 import sqlalchemy
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, MetaData, Table
 from sqlalchemy.orm import mapper, sessionmaker
-from model import Botusers
+from model import *
 import random
 import keyboard
 from keyboard import keyb
