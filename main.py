@@ -14,6 +14,7 @@ import keyboard
 from keyboard import keyb
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
+mapper=
 
 
 stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE", "CAADBAADfQADzjkIDSgZQLclD7jiFgQ", "CAADBAADRAADzjkIDbv4-ULKD6hiFgQ", "CAADAgAD0gIAArnzlwt4AXAE0tVijhYE", "CAADAgAD2gEAAsdjXBUX3pc5V_GYDBYE", "CAADBAADmAADzjkIDRaa2RCZbCJWFgQ", "CAADBAADkwADzjkIDYydFNXPYxHoFgQ", "CAADAgAD4w0AAqgILwh6UH_uBQWn_RYE", "CAADAgADBAgAAhhC7ghzMDDTpZ3HjRYE", "CAADAgADCAADl_TGFHTucAABYtoR1BYE"]
@@ -26,10 +27,10 @@ def user_message(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    newid=Botuser(f'{from_user.id}')
-    newname=Botuser(f'{from_user.first_name}')
-    session.add(newid)
-    session.add Botuser(newname)
+    tgid=Botuser(f'{from_user.id}')
+    name=Botuser(f'{from_user.first_name}')
+    session.add(tgid)
+    session.add Botuser(name)
     session.commit()
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
