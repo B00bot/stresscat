@@ -26,7 +26,7 @@ def user_message(msg):
 @bot.message_handler(commands=['start'])
 def start_message(msg):
     newid=msg.from_user.id
-    newname=msg.from_user.id
+    newname=msg.from_user.first_name
     newbotuser=Botusers(newid, newname)
     session.add(newbotuser)
     session.commit()
