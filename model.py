@@ -9,7 +9,7 @@ session = Session()
 
 class Botusers(base):
     __tablename__ = "Botusers"
-    tgid = Column(String, nullable=False)
+    tgid = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     
     def __init__(self, tgid, name):
