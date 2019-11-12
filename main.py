@@ -21,15 +21,12 @@ stickers = ["CAADAgADCwADlp-MDpuVH3sws_a7FgQ", "CAADAgAD7g0AAqgILwj_8DhBu2dnDRYE
 
 @bot.message_handler(commands=['user'])
 def user_message(msg):
-    tgid=msg.from_user.id
-    name=msg.from_user.first_name
-    bot.send_message(msg.chat.id, f'Ты {msg.from_user.first_name} {msg.from_user.id}')
+    bot.send_message(msg.chat.id, f'Ты {msg.from_user.first_name}, id={msg.from_user.id}')
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    tgid=Botusers(f'{msg.from_user.id}')
     name=Botusers(f'{msg.from_user.first_name}')
-    session.add(tgid, name)
+    session.add(tgid)
     session.commit()
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
