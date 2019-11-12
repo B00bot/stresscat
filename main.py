@@ -30,7 +30,7 @@ def start_message(msg):
     tgid=Botusers(newid)
     tgid=Botusers(newid)
     session.add(tgid)
-     session.add(name)
+    session.add(name)
     session.commit()
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
