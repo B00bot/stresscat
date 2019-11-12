@@ -8,7 +8,7 @@ base = declarative_base(engine)
 session = Session()
 
 class Botusers(base):
-    __tablename__ = "Botusers"
+    __tablename__ = "botusers"
     tgid = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     
