@@ -7,21 +7,12 @@ Session = sessionmaker(bind=engine)
 base = declarative_base(engine)
 session = Session()
 
-class dbm:
-    __slots__ = ['session']
-    def __enter__(self):
-        self.session = session()
-        return self.session
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.session.commit()
-        self.session.close()
-
 class Botusers(base):
     __tablename__ = "Botusers"
     tgid = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     
-    def __str__(self, tgid, name):
+    def __init__(self, tgid, name):
         self.tgid = tgid
         self.name = name
 
