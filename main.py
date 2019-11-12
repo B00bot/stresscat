@@ -29,6 +29,7 @@ def start_message(msg):
     newname=msg.from_user.first_name
     newbotuser=Botusers(newid, newname)
     session.add(newbotuser)
+    session.rollback()
     session.commit()
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
