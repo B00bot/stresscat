@@ -39,9 +39,8 @@ def start_message(msg):
 @bot.message_handler(commands=['user'])
 def user_message(msg):
     yourid = msg.from_user.id
-    for id, name, in session.query(botuser.id, botuser.name):
-        print id, name
-    bot.send_message(msg.chat.id, f'Ты {msg.from_user.first_name}, id={msg.from_user.id}')
+    for name in session.query(User.name).filter_by(id=523018745):
+        bot.send_message(msg.chat.id, f'Ты {name}, id={msg.from_user.id}, я тебя знаю!')
 
 @bot.message_handler(content_types=['text'])
 def amy_message(msg):
