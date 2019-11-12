@@ -28,7 +28,7 @@ def start_message(msg):
     newid=msg.from_user.id
     newname=msg.from_user.id
     tgid=Botusers(newid)
-    tgid=Botusers(newid)
+    name=Botusers(newname)
     session.add(tgid)
     session.add(name)
     session.commit()
