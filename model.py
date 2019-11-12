@@ -21,7 +21,7 @@ class Botusers(base):
     tgid = Column(Integer, primary_key=True)
     name = Column(String, nullable=False)
     
-    def __init__(self, tgid, name):
+    def __str__(self, tgid, name):
         self.tgid = tgid
         self.name = name
 
