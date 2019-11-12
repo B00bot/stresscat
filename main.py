@@ -26,13 +26,17 @@ def user_message(msg):
 
 @bot.message_handler(commands=['start'])
 def start_message(msg):
-    bot.send_message(msg.chat.id, """Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
+    newid=from_user.id
+    newname=from_user.first_name
+    session.add Botuser(newid, newname)
+    session.commit()
+    bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
 нажми 😘 Докажи 😘 
 Если грустно
 нажми 😞 Грустно 😞 
 Если ничего не понятно
-нажми 🤷‍♂️ Нипанятнаа 🤷‍♂️""", reply_markup=keyb)
+нажми 🤷‍♂️ Нипанятнаа 🤷‍♂️''', reply_markup=keyb)
 
 @bot.message_handler(content_types=['text'])
 def amy_message(msg):
