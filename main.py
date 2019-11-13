@@ -40,7 +40,7 @@ def user_message(msg):
     yourid = msg.from_user.id
     for name in session.query(Botusers).filter_by(id=yourid):
         bot.send_message(msg.chat.id, f'Ты {Botusers.name}, id={msg.from_user.id}, я тебя знаю!')
-
+    Sesdion.commit()
 @bot.message_handler(content_types=['text'])
 def any_message(msg):
     if msg.text.lower() == '❤️ секрет ❤️':
