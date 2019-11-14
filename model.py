@@ -17,6 +17,6 @@ class Botusers(base):
         self.name = name
 
     
-    def __repr__(self, tgid, name):
+    def __repr__(self):
         return "'%s', '%s'" % \
                (self.tgid, self.name)
