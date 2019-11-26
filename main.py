@@ -49,7 +49,11 @@ def user_message(msg):
 {username.name} 
 твой id
 {userid.id}''')
-    
+ 
+@bot.message_handler(func=lambda message: message.forward_from_chat)
+def frwdmsg(msg)
+    print(message.text)
+
     
 @bot.message_handler(content_types=['text'])
 def any_message(msg):
