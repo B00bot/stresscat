@@ -28,6 +28,7 @@ def start_message(msg):
         session.add(newbotuser)
         session.commit()
     except sqlalchemy.exc.InvalidRequestError:
+        Session.rollback()
         session.commit()
         print("запись существует")
     finally:
