@@ -25,10 +25,10 @@ def start_message(msg):
     newname=msg.from_user.first_name
     newbotuser=Botusers(newid, newname)
     compareid=session.query(Botusers.id).filter_by(id=msg.from_user.id).first()
-    If compareid == newid:
+    if compareid == newid:
         session.add(newbotuser)
         session.commit()
-    Else:
+    else:
         session.commit()
         print("запись существует")
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
