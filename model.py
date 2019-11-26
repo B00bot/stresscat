@@ -13,7 +13,7 @@ class Botusers(base):
     name = Column(String, nullable=False)
     
     def __init__(self, tgid, name):
-        self.tgid = tgid
+        self.id = tgid
         self.name = name
 
     
