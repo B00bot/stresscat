@@ -28,7 +28,6 @@ def start_message(msg):
         session.add(newbotuser)
         session.commit()
     except:
-        session.insert(newbotuser)
         session.commit()
         print("запись существует")
     finally:
