@@ -27,7 +27,7 @@ def start_message(msg):
     try:
         session.add(newbotuser)
         session.commit()
-    except sqlalchemy.exc.InvalidRequestError:
+    except InvalidRequestError:
         session.commit()
         print("запись существует")
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
