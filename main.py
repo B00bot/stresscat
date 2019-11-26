@@ -51,7 +51,7 @@ def user_message(msg):
 {userid.id}''')
  
 @bot.message_handler(func=lambda message: message.forward_from_chat)
-def frwdmsg(msg)
+def frwdmsg(msg):
     print(message.text)
 
     
