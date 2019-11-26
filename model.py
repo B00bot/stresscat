@@ -19,4 +19,4 @@ class Botusers(base):
     
     def __repr__(self):
         return "'%s', '%s'" % \
-               (self.tgid, self.name)
+               (self.id, self.name)
