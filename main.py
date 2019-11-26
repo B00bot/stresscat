@@ -24,15 +24,14 @@ def start_message(msg):
     newid=msg.from_user.id
     newname=msg.from_user.first_name
     newbotuser=Botusers(newid, newname)
-    try:
+    compareid=session.query(Botusers.id).filter_by(id=msg.from_user.id).first()
+    If compareid == newid:
         session.add(newbotuser)
         session.commit()
-    except sqlalchemy.exc.InvalidRequestError:
-        Session.rollback()
+    Else:
         session.commit()
         print("запись существует")
-    finally:
-        bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
+    bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
 нажми 😘 Докажи 😘 
 Если грустно
@@ -40,10 +39,10 @@ def start_message(msg):
 Если ничего не понятно
 нажми 🤷‍♂️ Нипанятнаа 🤷‍♂️''', reply_markup=keyb)
     
-    
+     
 @bot.message_handler(commands=['user'])
 def user_message(msg):
-    userid= username = session.query(Botusers.id).filter_by(id=msg.from_user.id).first()
+    userid = session.query(Botusers.id).filter_by(id=msg.from_user.id).first()
     username = session.query(Botusers.name).filter_by(id=msg.from_user.id).first()
     bot.send_message(msg.chat.id, f'''🤔, кажется я тебя знаю. 
 Ты 
