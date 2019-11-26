@@ -29,7 +29,7 @@ def start_message(msg):
         session.commit()
     except sqlalchemy.exc.InvalidRequestError:
         session.commit()
-        print("запись существует"
+        print("запись существует")
     bot.send_message(msg.chat.id, f'''Привет, {msg.from_user.first_name}. Если хочешь узнать тайну, нажми ❤️ Секрет ❤️ 
 Если нужны доказательства
 нажми 😘 Докажи 😘 
