@@ -50,9 +50,9 @@ def user_message(msg):
 твой id
 {userid.id}''')
  
-@bot.message_handler(func=lambda msg: msg.forward_from_user)
+@bot.message_handler(func=lambda msg: msg.forward_from_chat)
 def frwdmsg(msg):
-    fwd=msg.text
+    fwd= f'''{msg.text}'''
     print(fwd)
 
     
