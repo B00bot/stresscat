@@ -45,10 +45,9 @@ def user_message(msg):
     userid = session.query(Botusers.id).filter_by(id=msg.from_user.id).first()
     username = session.query(Botusers.name).filter_by(id=msg.from_user.id).first()
     bot.send_message(msg.chat.id, f'''🤔, кажется я тебя знаю. 
-Ты 
-{username.name} 
-твой id
-{userid.id}''')
+
+Ты - {username.name} 
+твой id - {userid.id}''')
  
 @bot.message_handler(func=lambda msg: msg.forward_from_chat)
 def frwdmsg(msg):
